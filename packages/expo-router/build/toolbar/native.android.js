@@ -33,21 +33,18 @@ function RouterToolbarItem(props) {
     }
     if (props.type === 'searchBar') {
         if (process.env.NODE_ENV !== 'production') {
-            // prettier-ignore
             console.warn('Stack.Toolbar.SearchBarSlot is not supported on Android. The search bar will not render.');
         }
         return null;
     }
     if (hasChildren(props.children)) {
         if (process.env.NODE_ENV !== 'production') {
-            // prettier-ignore
             console.warn('Stack.Toolbar.View is not supported on Android. Custom views inside the toolbar will not render.');
         }
         return null;
     }
     if (!props.source) {
-        if (process.env.NODE_ENV !== 'production') {
-            // prettier-ignore
+        if (process.env.NODE_ENV !== 'production' && !props.mdIconName) {
             console.warn('Stack.Toolbar.Button on Android requires an ImageSourcePropType icon. SF Symbols and xcasset icons are not supported. Use the `icon` prop with a require() or { uri } source, or use <Stack.Toolbar.Icon src={...} />.');
         }
         return null;
